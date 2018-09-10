@@ -29,7 +29,7 @@ if (!function_exists('xorencrypter')) {
         if (is_null($key)) {
             return app(Encrypter::class);
         } else {
-            return app()->make(Encrypter::class, ['key' => $key]);
+            return app()->makeWith(Encrypter::class, ['key' => $key]);
         }
     }
 }
