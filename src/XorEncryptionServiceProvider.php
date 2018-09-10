@@ -11,7 +11,7 @@ class XorEncryptionServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(Encrypter::class, function($app) {
-            return new Encrypter($app->config['app.key']);
+            return new Encrypter($app['config']->get('app.key'));
         });
     }
 
