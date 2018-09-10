@@ -8,7 +8,7 @@ class Encrypter implements EncrypterContract
 {
     private $key;
 
-    public function __construct(string $key = '')
+    public function __construct($key = '')
     {
         $this->key = sha1(md5($key));
     }
@@ -30,7 +30,7 @@ class Encrypter implements EncrypterContract
         return $this->algorithm($payload, $this->key);
     }
 
-    public function algorithm(string $str = '', string $key = null)
+    public function algorithm($str = '', $key = null)
     {
         if ('' == $str) {
             return '';
