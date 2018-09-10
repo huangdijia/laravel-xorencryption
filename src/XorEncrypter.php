@@ -19,13 +19,13 @@ class Encrypter implements EncrypterContract
         if (!$serialize) {
             return $encrypted;
         }
-        return base64_encode($encrypted);
+        return bin2hex($encrypted);
     }
 
     public function decrypt($payload = '', $unserialize = true)
     {
         if ($unserialize) {
-            $payload = base64_decode($payload);
+            $payload = hex2bin($payload);
         }
         return $this->algorithm($payload, $this->key);
     }
