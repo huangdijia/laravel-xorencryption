@@ -13,7 +13,7 @@ class XorEncryption
 
     public function encrypt(string $string = '', string $key = null): string
     {
-        return base64_encode($this->algorithm($string), $key ?? $this->key);
+        return base64_encode($this->algorithm($string, $key ?? $this->key));
     }
 
     public function decrypt(string $encrypted = '', string $key = null): string
