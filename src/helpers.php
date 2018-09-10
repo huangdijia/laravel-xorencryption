@@ -27,7 +27,7 @@ if (!function_exists('xorencrypter')) {
     function xorencrypter($key = null)
     {
         if (is_null($key)) {
-            return app()->makeWith(Encrypter::class, ['key' => config('app.key')]);
+            return app(Encrypter::class);
         } else {
             return app()->makeWith(Encrypter::class, ['key' => $key]);
         }
