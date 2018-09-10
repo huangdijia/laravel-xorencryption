@@ -26,6 +26,10 @@ if (!function_exists('xorcrypt')) {
 if (!function_exists('xorencrypter')) {
     function xorencryption($key = null)
     {
-        return is_null($key) ? app('hashing.xorencrypter') : new Encrypter($key);
+        if (is_null($key)) {
+            return app(Encrypter::class);
+        } else {
+            return app(Encrypter::class, ['key' => $key]);
+        }
     }
 }

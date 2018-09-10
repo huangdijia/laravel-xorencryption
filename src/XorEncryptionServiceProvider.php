@@ -10,13 +10,15 @@ class XorEncryptionServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->singleton('hashing.xorencrypter', function () {
-            return new Encrypter(config('app.key'));
+        $this->app->singleton(Encrypter::class, function($app) {
+            return new Encrypter($app->config['app.key']);
         });
     }
 
     public function provides()
     {
-        return ['hashing.xorencrypter'];
+        return [
+            Encrypter::class
+        ];
     }
 }
