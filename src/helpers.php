@@ -1,30 +1,30 @@
 <?php
 use Huangdijia\XorEncryption\Encrypter;
-use Huangdijia\XorEncryption\Facades\XorEncryption;
+use Huangdijia\XorEncryption\Facades\XorEncrypter;
 
 if (!function_exists('xorencrypt')) {
-    function xorencrypt($str = '', $key = null)
+    function xorencrypt($value = '', $serialize = true)
     {
-        return XorEncryption::encrypt($str, $key);
+        return XorEncrypter::encrypt($value, $serialize);
     }
 }
 
 if (!function_exists('xordecrypt')) {
-    function xordecrypt($str = '', $key = null)
+    function xordecrypt($payload = '', $unserialize = true)
     {
-        return XorEncryption::decrypt($str, $key);
+        return XorEncrypter::decrypt($payload, $unserialize);
     }
 }
 
 if (!function_exists('xorcrypt')) {
-    function xorcrypt($str = '', $key = null)
+    function xorcrypt($value = '', $key = null)
     {
-        return XorEncryption::algorithm($str, $key);
+        return XorEncrypter::algorithm($value, $key);
     }
 }
 
 if (!function_exists('xorencrypter')) {
-    function xorencryption(string $key = null)
+    function xorencryption($key = null)
     {
         return is_null($key) ? app('hashing.xorencrypter') : new Encrypter($key);
     }
