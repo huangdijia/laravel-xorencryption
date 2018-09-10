@@ -8,6 +8,6 @@ class XorEncryption extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'hashing.xorencryption'; 
+        return 'hashing.xorencrypter';
     }
 }
