@@ -18,6 +18,6 @@ class XorEncryptionServiceProvider extends ServiceProvider
 
     public function provides()
     {
-        return 'hashing.xorencryption';
+        return ['hashing.xorencryption'];
     }
 }
